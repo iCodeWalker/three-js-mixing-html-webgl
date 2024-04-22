@@ -124,6 +124,10 @@ gltfLoader.load("/models/DamagedHelmet/glTF/DamagedHelmet.gltf", (gltf) => {
 });
 
 /**
+ * Raycaster
+ */
+const raycaster = new THREE.Raycaster();
+/**
  * Points of interest
  */
 const points = [
@@ -212,6 +216,28 @@ const tick = () => {
 
     const screenPosition = point.position.clone();
     screenPosition.project(camera);
+
+    // use raycaster
+    raycaster.setFromCamera(screenPosition, camera);
+
+    // find out intersect points
+    const intersects = raycaster.intersectObjects(scene.children, true);
+
+    // If no 'intersect' point show the dom element
+    if (intersects.length === 0) {
+      point.element.classList.add("visible");
+    } else {
+      // Get distance of intersection
+      const intersectionDistance = intersects[0].distance;
+      const pointDistance = point.position.distanceTo(camera.position);
+
+      // If intersection is less than point "hide" the dom element
+      if (intersectionDistance < pointDistance) {
+        point.element.classList.remove("visible");
+      } else {
+        point.element.classList.add("visible");
+      }
+    }
 
     const translateX = screenPosition.x * sizes.width * 0.5;
     const translateY = -screenPosition.y * sizes.height * 0.5;

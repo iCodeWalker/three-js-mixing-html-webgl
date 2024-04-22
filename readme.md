@@ -18,3 +18,13 @@
 
    Clone the point's position because we are going to convert it to the screen coordinates and we don't want to mess with the initial position.
    const screenPosition = point.position.clone()
+
+7. Showing and hiding element:
+
+   1. We are going to use Raycaster and shoot a ray from the camera to the point.
+
+   2. If there is no intersecting object, we show the point.
+
+   3. If there is interectiong object, we compare the distance of the intersections
+      1. If the intersecting point is further than the dom element point, it means that the object is behind the point, and we show it.
+      2. If the intersecting point is closer than the point, the intersecting obeject is infront of the dom point, than we hide it.
