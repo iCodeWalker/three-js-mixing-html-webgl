@@ -124,6 +124,16 @@ gltfLoader.load("/models/DamagedHelmet/glTF/DamagedHelmet.gltf", (gltf) => {
 });
 
 /**
+ * Points of interest
+ */
+const points = [
+  {
+    position: new THREE.Vector3(1.55, 0.3, -0.6),
+    element: document.querySelector(".point-0"),
+  },
+];
+
+/**
  * Lights
  */
 const directionalLight = new THREE.DirectionalLight("#ffffff", 3);

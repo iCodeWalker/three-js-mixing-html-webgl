@@ -1,16 +1,13 @@
-# Three.js Journey
+# Three.js Mixing HMTL and WebGL
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+1. We will integrate HTML into the scene like if the DOM element is part of the WebGL.
 
-``` bash
-# Install dependencies (only the first time)
-npm install
+2. We will add a DOM element to the HTML and this dom element will follow a point on the model.
 
-# Run the local server at localhost:8080
-npm run dev
+3. Add a point example : a <div> element to out HTML file.
 
-# Build for production in the dist/ directory
-npm run build
-```
+4. We need the point to be hidden when it is not supposed to be visible, we are going to hide it and only show it if there is a visible class on it.
+
+5. We need to store the points.
+   1. We will use an array of objects with each object corresponding to one point.
+   2. Each point object will have two properties. 3D position and reference to the HTML element
