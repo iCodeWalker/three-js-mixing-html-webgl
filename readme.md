@@ -28,3 +28,6 @@
    3. If there is interectiong object, we compare the distance of the intersections
       1. If the intersecting point is further than the dom element point, it means that the object is behind the point, and we show it.
       2. If the intersecting point is closer than the point, the intersecting obeject is infront of the dom point, than we hide it.
+
+8. Wait for the scene to be ready.
+   We can see the point while the scene is loading
