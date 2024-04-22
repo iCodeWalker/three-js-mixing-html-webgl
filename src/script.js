@@ -206,6 +206,20 @@ const tick = () => {
   // Update controls
   controls.update();
 
+  // Loop through each point
+  for (const point of points) {
+    // get the 2D screen position of the 3D scene position of the point
+
+    const screenPosition = point.position.clone();
+    screenPosition.project(camera);
+
+    const translateX = screenPosition.x * sizes.width * 0.5;
+    const translateY = -screenPosition.y * sizes.height * 0.5;
+
+    // Update the dom element position
+    point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
+  }
+
   // Render
   renderer.render(scene, camera);
 

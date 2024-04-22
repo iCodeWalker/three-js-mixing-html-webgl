@@ -9,5 +9,12 @@
 4. We need the point to be hidden when it is not supposed to be visible, we are going to hide it and only show it if there is a visible class on it.
 
 5. We need to store the points.
+
    1. We will use an array of objects with each object corresponding to one point.
    2. Each point object will have two properties. 3D position and reference to the HTML element
+
+6. We are going to update the points elements on each frame in the tick function.
+   We need to get the 2D screen position of the 3D scene position of the point.
+
+   Clone the point's position because we are going to convert it to the screen coordinates and we don't want to mess with the initial position.
+   const screenPosition = point.position.clone()
